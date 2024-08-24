@@ -1,5 +1,6 @@
 const Post = require('../models/Post');
 
+// Get all posts
 exports.getAllPosts = (req, res) => {
     Post.getAll((err, posts) => {
         if (err) return res.status(500).json({ error: err.message });
@@ -7,6 +8,7 @@ exports.getAllPosts = (req, res) => {
     });
 };
 
+// Get a specific post by ID
 exports.getPostById = (req, res) => {
     const { id } = req.params;
     Post.getById(id, (err, post) => {
@@ -16,6 +18,7 @@ exports.getPostById = (req, res) => {
     });
 };
 
+// Create a new post
 exports.createPost = (req, res) => {
     const { title, content, summary } = req.body;
     if (!title || !content || !summary) {
@@ -27,6 +30,7 @@ exports.createPost = (req, res) => {
     });
 };
 
+// Update a post by ID
 exports.updatePost = (req, res) => {
     const { id } = req.params;
     const { title, content, summary } = req.body;
@@ -39,6 +43,7 @@ exports.updatePost = (req, res) => {
     });
 };
 
+// Delete a post by ID
 exports.deletePost = (req, res) => {
     const { id } = req.params;
     Post.delete(id, (err) => {

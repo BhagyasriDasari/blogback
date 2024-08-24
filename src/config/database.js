@@ -7,7 +7,7 @@ const dbFilePath = path.resolve(__dirname, '../data/database.db');
 
 // Ensure the 'data' directory exists
 const dir = path.dirname(dbFilePath);
-if (!fs.existsSync(dir)){
+if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, { recursive: true });
 }
 

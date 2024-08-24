@@ -10,10 +10,10 @@ class Post {
     }
 
     static create(data, callback) {
-        const { title, content, excerpt } = data;
+        const { title, content, summary } = data;
         db.run(
-            'INSERT INTO posts (title, content, excerpt) VALUES (?, ?, ?)',
-            [title, content, excerpt],
+            'INSERT INTO posts (title, content, summary) VALUES (?, ?, ?)',
+            [title, content, summary],
             function (err) {
                 callback(err, this.lastID);
             }
@@ -21,10 +21,10 @@ class Post {
     }
 
     static update(id, data, callback) {
-        const { title, content, excerpt } = data;
+        const { title, content, summary } = data;
         db.run(
-            'UPDATE posts SET title = ?, content = ?, excerpt = ? WHERE id = ?',
-            [title, content, excerpt, id],
+            'UPDATE posts SET title = ?, content = ?, summary = ? WHERE id = ?',
+            [title, content, summary, id],
             callback
         );
     }

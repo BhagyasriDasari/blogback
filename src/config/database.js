@@ -2,7 +2,6 @@ const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 const fs = require('fs');
 
-// Define the path to the database file in the 'data' directory inside 'src'
 const dbFilePath = path.resolve(__dirname, '../data/database.db');
 
 // Ensure the 'data' directory exists

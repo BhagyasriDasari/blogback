@@ -1,9 +1,10 @@
 const Post = require('../models/Post');
 
-// Get all posts
 exports.getAllPosts = (req, res) => {
     Post.getAll((err, posts) => {
-        if (err) return res.status(500).json({ error: err.message });
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
         res.json(posts);
     });
 };
